@@ -15,10 +15,10 @@ class InputController {
         this.player.x = 0
         this.player.y = 0
         if (this.isJumping) return
-        if (keyListener.isPressed('ArrowLeft')) this.player.x -= 1
-        if (keyListener.isPressed('ArrowRight')) this.player.x += 1
-        if (keyListener.isPressed('ArrowUp')) this.player.y += 1
-        if (keyListener.isPressed('ArrowDown')) this.player.y -= 1
+        if (keyListener.isPressed('KeyA')) this.player.x -= 1
+        if (keyListener.isPressed('KeyD')) this.player.x += 1
+        if (keyListener.isPressed('KeyW')) this.player.y += 1
+        if (keyListener.isPressed('KeyS')) this.player.y -= 1
     }
     jumping = (flag:boolean) => {
         this.isJumping = flag

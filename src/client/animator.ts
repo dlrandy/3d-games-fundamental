@@ -3,14 +3,14 @@ import { AnimationAction, AnimationClip, Object3D } from 'three';
 import machine from './loopMachine';
 
 class Animator {
-    mesh:Object3D;
-    mixer:THREE.AnimationMixer;
-    clock:THREE.Clock;
-    clips:AnimationAction[];
-    lastClip:number|null;
+    mesh: Object3D;
+    mixer: THREE.AnimationMixer;
+    clock: THREE.Clock;
+    clips: AnimationAction[];
+    lastClip: number | null;
     interpolationTime: number;
-    inProgress:boolean;
-    constructor(mesh:Object3D) {
+    inProgress: boolean;
+    constructor(mesh: Object3D) {
         this.mesh = mesh;
         this.mixer = new THREE.AnimationMixer(mesh);
         this.clock = new THREE.Clock();
@@ -29,9 +29,9 @@ class Animator {
         machine.removeCallback(this.run);
     }
     onCycleFinished = () => {
-        this.inProgress = true;
+        this.inProgress = false;
     }
-    action = (animationId:number, timeScale: number, cycleFlag:boolean) => {
+    action = (animationId: number, timeScale: number, cycleFlag: boolean) => {
         if (this.inProgress) {
             return;
         }

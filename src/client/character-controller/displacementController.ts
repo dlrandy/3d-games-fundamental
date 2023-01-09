@@ -46,7 +46,8 @@ class DisplacementController {
             this.timer = new Date().getTime()
     }
     keyListener = (data:any) => {
-        if (data[0] == 'Shift') {//shift
+ console.log("data ", data);
+        if (data[0].includes('Shift')) {//shift
             this.speed = (data[1]) ? this.speedReference * 2 : this.speedReference
         }
     }

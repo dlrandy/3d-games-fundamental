@@ -9,7 +9,7 @@ class KeyListener {
         this.caster = caster;
     }
     isPressed = (key: string) => {
-        return !!this.keys[key];
+        return (this.keys[key]) ? this.keys[key] : false
     }
     down = (e: KeyboardEvent) => {
         console.log("e.code ", e.code, e.code.length);

@@ -1,8 +1,8 @@
 class LoopMachine {
-    looping: boolean;
+    flag: boolean;
     callbacks: Array<() => void>;
     constructor() {
-        this.looping = false;
+        this.flag = false;
         this.callbacks = [];
     }
     addCallback(callback: () => void) {
@@ -12,21 +12,21 @@ class LoopMachine {
         this.callbacks = this.callbacks.filter(cb => cb !== callback);
     }
     run = () => {
-        if (!this.looping) {
+        if (!this.flag) {
             return;
         }
         this.callbacks.forEach(cb => cb());
         requestAnimationFrame(this.run);
     }
     start = () => {
-        if (this.looping) {
+        if (this.flag) {
             return;
         }
-        this.looping = true;
+        this.flag = true;
         this.run();
     }
     stop = () => {
-        this.looping = false;
+        this.flag = false;
     }
 }
 const machine = new LoopMachine();
