@@ -31,7 +31,7 @@ class AnimationController {
         this.player.eventBus.dispatch('jumping', flag)//to everyone
     }
     keyListener = (data:any) => {
-        if (data[0] == "Shift") {//shift
+        if (data[0].includes("Shift")) {//shift
             this.animatorAdapter.setMode((data[1]) ? 'run' : 'normal')
         }
     }
